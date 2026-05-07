@@ -28,7 +28,7 @@ public abstract class MixinArmorFeatureRenderer<T extends LivingEntity, M extend
             method = "renderArmorParts",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/render/entity/model/BipedEntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;IIFFFF)V"
+                    target = "Lnet/minecraft/client/render/entity/model/BipedEntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;III)V"
             ),
             index = 3
     )
