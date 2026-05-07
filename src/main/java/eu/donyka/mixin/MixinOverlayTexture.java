@@ -35,7 +35,7 @@ public abstract class MixinOverlayTexture implements OverlayReloadListener {
         int color = getOverlayColor();
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 16; x++) {
-                image.setColor(x, y, color);
+                image.setColorArgb(x, y, color);
             }
         }
         this.texture.upload();
@@ -44,14 +44,10 @@ public abstract class MixinOverlayTexture implements OverlayReloadListener {
     private static int getOverlayColor() {
         HConfig config = HCScreen.getConfig();
         if (!config.enable) {
-            return 0xB20000FF;
+            return 0xB3000000;
         }
 
-        int argb = config.alpha << 24 | config.color & 0xFFFFFF;
-        int alpha = 255 - (argb >> 24 & 0xFF);
-        int red = argb >> 16 & 0xFF;
-        int green = argb >> 8 & 0xFF;
-        int blue = argb & 0xFF;
-        return alpha << 24 | blue << 16 | green << 8 | red;
+        int alpha = 255 - config.alpha & 0xFF;
+        return alpha << 24 | config.color & 0xFFFFFF;
     }
 }

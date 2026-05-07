@@ -8,14 +8,9 @@ public interface OverlayRendered<T> {
             MatrixStack matrices,
             VertexConsumerProvider vertexConsumers,
             int light,
-            T entity,
-            float limbAngle,
-            float limbDistance,
-            float tickDelta,
-            float animationProgress,
-            float headYaw,
-            float headPitch,
+            T state,
+            float yaw,
+            float pitch,
             int overlay
     );
 }
-
