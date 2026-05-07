@@ -3,8 +3,7 @@ package eu.donyka.mixin;
 import eu.donyka.config.HCScreen;
 import eu.donyka.listener.ArmorOverlayContext;
 import eu.donyka.listener.OverlayRendered;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
@@ -25,7 +24,7 @@ public abstract class MixinArmorFeatureRenderer
     @Override
     public void hitcolor$renderWithOverlay(
             MatrixStack matrices,
-            VertexConsumerProvider vertexConsumers,
+            OrderedRenderCommandQueue queue,
             int light,
             BipedEntityRenderState state,
             float yaw,
@@ -39,7 +38,7 @@ public abstract class MixinArmorFeatureRenderer
         }
 
         try {
-            this.render(matrices, vertexConsumers, light, state, yaw, pitch);
+            this.render(matrices, queue, light, state, yaw, pitch);
         } finally {
             ArmorOverlayContext.clear();
         }

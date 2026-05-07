@@ -6,7 +6,8 @@
     "MixinArmorFeatureRenderer",
     "MixinEquipmentRenderer",
     "MixinLivingEntityRenderer",
-    "MixinOverlayTexture"
+    "MixinOverlayTexture",
+    "MixinRenderPipelines"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,7 +1,7 @@
 package eu.donyka.mixin;
 
 import eu.donyka.listener.OverlayRendered;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -18,14 +18,14 @@ public abstract class MixinLivingEntityRenderer<S extends LivingEntityRenderStat
             method = "render",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/render/entity/feature/FeatureRenderer;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/state/EntityRenderState;FF)V"
+                    target = "Lnet/minecraft/client/render/entity/feature/FeatureRenderer;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;ILnet/minecraft/client/render/entity/state/EntityRenderState;FF)V"
             )
     )
     @SuppressWarnings({"rawtypes", "unchecked"})
     private void hitcolor$renderFeatureWithOverlay(
             FeatureRenderer feature,
             MatrixStack matrices,
-            VertexConsumerProvider vertexConsumers,
+            OrderedRenderCommandQueue queue,
             int light,
             EntityRenderState state,
             float yaw,
@@ -33,10 +33,10 @@ public abstract class MixinLivingEntityRenderer<S extends LivingEntityRenderStat
     ) {
         if (feature instanceof OverlayRendered overlayRendered && state instanceof LivingEntityRenderState livingState) {
             int overlay = LivingEntityRenderer.getOverlay(livingState, 0.0F);
-            overlayRendered.hitcolor$renderWithOverlay(matrices, vertexConsumers, light, state, yaw, pitch, overlay);
+            overlayRendered.hitcolor$renderWithOverlay(matrices, queue, light, state, yaw, pitch, overlay);
             return;
         }
 
-        feature.render(matrices, vertexConsumers, light, state, yaw, pitch);
+        feature.render(matrices, queue, light, state, yaw, pitch);
     }
 }
