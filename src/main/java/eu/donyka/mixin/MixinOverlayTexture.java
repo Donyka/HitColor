@@ -35,7 +35,7 @@ public abstract class MixinOverlayTexture implements OverlayReloadListener {
         int color = getOverlayColor();
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 16; x++) {
-                image.setPixelColor(x, y, color);
+                image.setColor(x, y, color);
             }
         }
         this.texture.upload();
@@ -55,4 +55,3 @@ public abstract class MixinOverlayTexture implements OverlayReloadListener {
         return alpha << 24 | blue << 16 | green << 8 | red;
     }
 }
-

@@ -34,8 +34,7 @@ public abstract class MixinArmorFeatureRenderer<T extends LivingEntity, M extend
     )
     private int hitcolor$useHitOverlayForArmor(int overlay) {
         return HCScreen.getConfig().enableArmor && this.hitcolor$currentEntity != null && this.hitcolor$currentEntity.hurtTime > 0
-                ? this.hitcolor$overlay
-                : overlay;
+                ? this.hitcolor$overlay : overlay;
     }
 
     @Override
@@ -59,4 +58,3 @@ public abstract class MixinArmorFeatureRenderer<T extends LivingEntity, M extend
         this.hitcolor$overlay = OverlayTexture.DEFAULT_UV;
     }
 }
-
