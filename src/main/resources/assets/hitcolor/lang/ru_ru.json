@@ -1,0 +1,10 @@
+{
+  "text.autoconfig.hitcolor.title": "HitColor",
+  "text.autoconfig.hitcolor.category.default": "\u041e\u0431\u0449\u0435\u0435",
+  "text.autoconfig.hitcolor.option.enable": "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c HitColor",
+  "text.autoconfig.hitcolor.option.enableArmor": "\u041a\u0440\u0430\u0441\u0438\u0442\u044c \u0431\u0440\u043e\u043d\u044e",
+  "text.autoconfig.hitcolor.option.color": "\u0426\u0432\u0435\u0442",
+  "text.autoconfig.hitcolor.option.alpha": "\u041f\u0440\u043e\u0437\u0440\u0430\u0447\u043d\u043e\u0441\u0442\u044c",
+  "text.autoconfig.hitcolor.option.enable.@Tooltip": "\u041c\u0435\u043d\u044f\u0435\u0442 \u0446\u0432\u0435\u0442 \u043e\u0432\u0435\u0440\u043b\u0435\u044f \u0443\u0440\u043e\u043d\u0430.",
+  "text.autoconfig.hitcolor.option.enableArmor.@Tooltip": "\u041f\u0440\u0438\u043c\u0435\u043d\u044f\u0435\u0442 HitColor \u043a \u0431\u0440\u043e\u043d\u0435."
+}

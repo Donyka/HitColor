@@ -1,0 +1,10 @@
+{
+  "text.autoconfig.hitcolor.title": "HitColor Settings",
+  "text.autoconfig.hitcolor.category.default": "General",
+  "text.autoconfig.hitcolor.option.enable": "Enable HitColor",
+  "text.autoconfig.hitcolor.option.enableArmor": "Enable Armor Coloring",
+  "text.autoconfig.hitcolor.option.color": "Hit Color",
+  "text.autoconfig.hitcolor.option.alpha": "Alpha",
+  "text.autoconfig.hitcolor.option.enable.@Tooltip": "Changes the default hurt overlay color.",
+  "text.autoconfig.hitcolor.option.enableArmor.@Tooltip": "Applies the hit color overlay to armor too."
+}
