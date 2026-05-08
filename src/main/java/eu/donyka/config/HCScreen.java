@@ -1,8 +1,9 @@
 package eu.donyka.config;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screens.Screen;
 
 public final class HCScreen {
     private HCScreen() {
@@ -17,7 +18,7 @@ public final class HCScreen {
     }
 
     public static Screen getScreen(Screen parent) {
-        return AutoConfig.getConfigScreen(HConfig.class, parent).get();
+        return AutoConfigClient.getConfigScreen(HConfig.class, parent).get();
     }
 }
 

@@ -1,12 +1,12 @@
 package eu.donyka.listener;
 
-import net.minecraft.client.render.command.OrderedRenderCommandQueue;
-import net.minecraft.client.util.math.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 
 public interface OverlayRendered<T> {
-    void hitcolor$renderWithOverlay(
-            MatrixStack matrices,
-            OrderedRenderCommandQueue queue,
+    void hitcolor$submitWithOverlay(
+            PoseStack matrices,
+            SubmitNodeCollector queue,
             int light,
             T state,
             float yaw,

@@ -1,44 +1,44 @@
 package eu.donyka.mixin;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import eu.donyka.config.HCScreen;
 import eu.donyka.listener.ArmorOverlayContext;
 import eu.donyka.listener.OverlayRendered;
-import net.minecraft.client.render.command.OrderedRenderCommandQueue;
-import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.client.render.entity.state.BipedEntityRenderState;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(ArmorFeatureRenderer.class)
+@Mixin(HumanoidArmorLayer.class)
 public abstract class MixinArmorFeatureRenderer
-        extends FeatureRenderer<BipedEntityRenderState, BipedEntityModel<BipedEntityRenderState>>
-        implements OverlayRendered<BipedEntityRenderState> {
+        extends RenderLayer<HumanoidRenderState, HumanoidModel<HumanoidRenderState>>
+        implements OverlayRendered<HumanoidRenderState> {
 
-    protected MixinArmorFeatureRenderer(FeatureRendererContext<BipedEntityRenderState, BipedEntityModel<BipedEntityRenderState>> context) {
+    protected MixinArmorFeatureRenderer(RenderLayerParent<HumanoidRenderState, HumanoidModel<HumanoidRenderState>> context) {
         super(context);
     }
 
     @Override
-    public void hitcolor$renderWithOverlay(
-            MatrixStack matrices,
-            OrderedRenderCommandQueue queue,
+    public void hitcolor$submitWithOverlay(
+            PoseStack matrices,
+            SubmitNodeCollector queue,
             int light,
-            BipedEntityRenderState state,
+            HumanoidRenderState state,
             float yaw,
             float pitch,
             int overlay
     ) {
-        if (HCScreen.getConfig().enableArmor && state.hurt) {
+        if (HCScreen.getConfig().enableArmor && state.hasRedOverlay) {
             ArmorOverlayContext.set(overlay);
         } else {
             ArmorOverlayContext.clear();
         }
 
         try {
-            this.render(matrices, queue, light, state, yaw, pitch);
+            this.submit(matrices, queue, light, state, yaw, pitch);
         } finally {
             ArmorOverlayContext.clear();
         }
