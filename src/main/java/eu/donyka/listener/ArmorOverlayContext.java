@@ -15,6 +15,10 @@ public final class ArmorOverlayContext {
         return overlay != null ? overlay : originalOverlay;
     }
 
+    public static boolean hasOverlay() {
+        return OVERLAY.get() != null;
+    }
+
     public static void clear() {
         OVERLAY.remove();
     }
