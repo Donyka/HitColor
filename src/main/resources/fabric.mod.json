@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "hitcolor",
+  "version": "${version}",
+  "name": "HitColor",
+  "description": "Client-side configurable hit overlay color.",
+  "authors": [
+    "Donyka"
+  ],
+  "contact": {
+    "homepage": "https://t.me/harudlc",
+    "sources": "https://github.com/Donyka/HitColor"
+  },
+  "license": "MIT",
+  "icon": "assets/hitcolor/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "eu.donyka.HitColor"
+    ],
+    "modmenu": [
+      "eu.donyka.config.Modmenu"
+    ]
+  },
+  "mixins": [
+    "hitcolor.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "fabric-api": "*",
+    "cloth-config": "*",
+    "minecraft": "${minecraft_dependency}",
+    "java": ">=${java_version}"
+  },
+  "recommends": {
+    "modmenu": "*"
+  }
+}
+
