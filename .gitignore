@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+.work/
+build/
+run/
+out/
+*.class
+
