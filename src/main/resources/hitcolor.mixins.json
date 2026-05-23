@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "eu.donyka.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MixinArmorFeatureRenderer",
+    "MixinLivingEntityRenderer",
+    "MixinOverlayTexture"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
