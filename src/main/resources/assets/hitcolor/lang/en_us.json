@@ -1,0 +1,8 @@
+{
+  "text.autoconfig.hitcolor.title": "HitColor Settings",
+  "text.autoconfig.hitcolor.option.enable": "Enable HitColor",
+  "text.autoconfig.hitcolor.option.enableArmor": "Enable Armor Coloring",
+  "text.autoconfig.hitcolor.option.color": "Hit Color",
+  "text.autoconfig.hitcolor.option.alpha": "Alpha"
+}
+
